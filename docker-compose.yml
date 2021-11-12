@@ -16,7 +16,7 @@ services:
       - CREATE_USER=1       # 0 不创建管理员用户, 1 创建管理员用户,默认是1
       - USER=admin     # 自定义管理员用户名
       - MM=1                # 自定义管理员密码，默认已使用随机密码，请修改start.sh启用
-      - UWSGI_INI=/app/MrDoc/uwsgi.ini
+     # - UWSGI_INI=/app/MrDoc/uwsgi.ini
 
 ###### 如果默认用户密码,以及变量添加用户密码无法登录,请参考:https://www.mrdoc.fun/project-1/doc-242/
     # ports:
