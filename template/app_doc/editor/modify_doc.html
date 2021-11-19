@@ -339,7 +339,18 @@
         shortcut.add("Ctrl+S",function() {
             modifyDoc();
         });
-
+        // macos command +s for firefox and chrome
+        var isCtrl = false;
+        document.onkeyup=function(e){
+            if(e.which == 224||e.which == 91) isCtrl=false;
+        }
+        document.onkeydown=function(e){
+            if(e.which == 224||e.which == 91) isCtrl=true;
+            if(e.which == 83 && isCtrl == true) {
+                modifyDoc();
+                return false;
+            }
+        }
         //选择文档模板
         $("#sel-doctemp").click(function(){
             layer.open({

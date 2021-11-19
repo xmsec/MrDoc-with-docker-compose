@@ -247,6 +247,8 @@ $("#dashang").click(function(r){
 $(function(){
     // $(".switch-toc").click(SwitchToc);
     $("body").on('click','.switch-toc',SwitchToc);
+    $(".layui-icon-left").length>=1?($(".switch-toc")).toArray().forEach(function(ele){ele.click(SwitchToc)}):'';
+
 });
 // 切换文档目录
 function SwitchToc(i){

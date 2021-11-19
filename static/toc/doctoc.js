@@ -214,7 +214,7 @@ function addAllStyle(highlightColor) {
         padding: 20px 20px 20px 20px;
         width:200px;
         height: min-content;
-        max-height:400px;
+        max-height:700px;
         background-color:white;
         border-left:2px solid #dddddd;
     }`)
