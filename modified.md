@@ -25,5 +25,5 @@
 3. 取消标题折叠
    static/mrdoc/mrdoc-docs.js:250+
    ```
-       $(".layui-icon-left").length>=1?($(".switch-toc")).toArray().forEach(function(ele){ele.click(SwitchToc)}):'';
+       $(".layui-icon-down").length<1?($(".switch-toc")).toArray().forEach(function(ele){ele.click(SwitchToc)}):'';
    ```
