@@ -169,7 +169,7 @@
                         <span class="">{% trans "此文集没有填写简介" %}</span>
                         {% else %}
                         <span class="">{{ p.intro | slice:'20' }}…</span>
-                        <span class="tooltip-content clearfix">{{ p.intro }}</span>
+                        <span class="tooltip-content clearfix">{{ p.intro | slice:'100' }}</span>
                         {% endif %}
                       </p>
                       {% for new_doc in p.id|get_new_doc %}
@@ -256,7 +256,7 @@
                 <input type="radio" name="project-role" value="1" title="私密">
             </div>
         </div>
-        <div style="color:red;font-size:12px;">{% trans "*在可个人中心对文集权限进行进一步控制" %}</div>
+        <div style="color:red;font-size:12px;">{% trans "*可在个人中心对文集权限进行进一步控制" %}</div>
     </div>
     
 </div>
