@@ -797,7 +797,8 @@ class ReportPDF():
                     toc_list['3'].append({'id':d3.id,'name':d3.name,'parent':d2.id})
 
         # 替换所有媒体文件链接
-        self.content_str = self.content_str.replace('![](/media/','![](../../media/')
+        self.content_str = re.sub("(!\[[^](]*?\])\(\/media\/","\\1(../../media/",self.content_str)
+        # self.content_str = self.content_str.replace('![](/media/','![](../../media/')
         # print(self.html_str.format(pre_content=self.content_str))
 
         # 创建写入临时HTML文件
