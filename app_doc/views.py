@@ -116,7 +116,7 @@ def get_pro_toc(pro_id):
     doc_list = []
     n = 0
     # 获取一级文档
-    top_docs = Doc.objects.filter(top_doc=pro_id, parent_doc=0, status=1).values('id', 'name','open_children','editor_mode').order_by('sort')
+    top_docs = Doc.objects.filter(top_doc=pro_id, parent_doc=0, status=1).values('id', 'name','open_children','editor_mode').order_by('sort','name')
     # 遍历一级文档
     for doc in top_docs:
         top_item = {

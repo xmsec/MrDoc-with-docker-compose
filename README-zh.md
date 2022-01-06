@@ -9,8 +9,8 @@
 
 
 <p align="center">
-<img src="https://img.shields.io/badge/MrDoc-v0.7.3-brightgreen.svg" title="Mrdoc" />
-<img src="https://img.shields.io/badge/Python-3.5+-blue.svg" title="Python" />
+<img src="https://img.shields.io/badge/MrDoc-v0.7.4-brightgreen.svg" title="Mrdoc" />
+<img src="https://img.shields.io/badge/Python-3.6+-blue.svg" title="Python" />
 <img src="https://img.shields.io/badge/Django-v2.2-important.svg" title="Django" />
 </p>
 
@@ -44,7 +44,7 @@ MrDoc 目前涵盖终端：
 - Chrome扩展：
     - MrDoc官方插件：[Gitee](https://gitee.com/zmister/mrdoc-webclipper) | [MicroSoft Edge 应用商店](https://microsoftedge.microsoft.com/addons/detail/dihimgafbjljdfanobikhnolpmjjhpic) | [Chrome](https://chrome.google.com/webstore/detail/jefmnpfkhhmmnfbhaegnggffbdplijje)
     - 简悦扩展：[GitHub](https://github.com/Kenshin/simpread) | [使用说明](https://github.com/Kenshin/simpread/issues/893)
-- 桌面客户端：[Gitee](https://gitee.com/zmister/mrdoc-desktop)
+- 桌面客户端：支持 Windows、Linux，[下载链接](https://gitee.com/zmister/mrdoc-desktop/releases/)
 
 开发中的终端：
 

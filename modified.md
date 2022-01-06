@@ -47,3 +47,8 @@
     cp chromedriver /usr/lib/chromium/chromedriver
     ``` 
  
+5. 增加TOC列表一级目录默认排序次选项: 文档标题. 文档按照排序值/文档名称依次排序
+    app_doc/views.py:119
+    ```
+    top_docs = Doc.objects.filter(top_doc=pro_id, parent_doc=0, status=1).values('id', 'name','open_children','editor_mode').order_by('sort','name')
+    ```
