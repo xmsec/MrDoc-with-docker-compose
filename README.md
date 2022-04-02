@@ -8,7 +8,7 @@
 </p>
 
 <p align="center">
-<img src="https://img.shields.io/badge/MrDoc-v0.7.4-brightgreen.svg" title="Mrdoc" />
+<img src="https://img.shields.io/badge/MrDoc-v0.7.7-brightgreen.svg" title="Mrdoc" />
 <img src="https://img.shields.io/badge/Python-3.6+-blue.svg" title="Python" />
 <img src="https://img.shields.io/badge/Django-v2.2-important.svg" title="Django" />
 </p>
@@ -38,11 +38,10 @@
 
 Current Platform：
 
-- Web，[instructions](http://mrdoc.zmister.com/project-7/)；
-- Chrome Extends:
-    - MrDoc速记:[MicroSoft Edge](https://microsoftedge.microsoft.com/addons/detail/dihimgafbjljdfanobikhnolpmjjhpic) | [Chrome](https://chrome.google.com/webstore/detail/jefmnpfkhhmmnfbhaegnggffbdplijje)
-    - [simpread](https://github.com/Kenshin/simpread)：[instructions](https://github.com/Kenshin/simpread/issues/893)
+- Web:[instructions](http://mrdoc.zmister.com/project-7/)；
+- Chrome Extends:[MicroSoft Edge](https://microsoftedge.microsoft.com/addons/detail/dihimgafbjljdfanobikhnolpmjjhpic) | [Chrome](https://chrome.google.com/webstore/detail/jefmnpfkhhmmnfbhaegnggffbdplijje)
 - Desktop: supportd Windows,Linux [Download](https://github.com/zmister2016/mrdoc-desktop/releases/)
+- Mobile APP:[Gitee](https://gitee.com/zmister/mrdoc-app-release)
 
 ## Example Site
 
@@ -129,12 +128,13 @@ python manage.py runserver
 ```
 
 
-## Third party deployment tools
+## Third deployment tools
 
-- [Docker Image](https://registry.hub.docker.com/r/jonnyan404/mrdoc-nginx)
+- [Docker Image](https://hub.docker.com/r/zmister/mrdoc)
+- [Docker Image By jonnyan404](https://registry.hub.docker.com/r/jonnyan404/mrdoc-nginx)
 - [Linux Deployment Script](https://gitee.com/jonnyan404/oh-my-mrdoc)
-- [Windows Deployment Pannel](https://gitee.com/debj031634/win-django)
-
+- [Windows Deployment Pannel By 小肥羊](https://gitee.com/debj031634/win-django)
+- [VirtualBox/VmWare Image By 无名](https://gitee.com/nicktf/tinycore-mrdoc)
 ## Feedback
 
 ### 1. Commit Issue
@@ -154,6 +154,10 @@ Join the mrdoc communication Tencent QQ group ，Group number:
 ### 3. Contact author
 
 WeChat Subscription : **zmister2016**
+
+<p align="center">
+<img src="https://doc.mrdoc.pro/media/202203/20220331121926_20220331122015390193.png" height="50%">
+</p>
 
 ## Dependent
 

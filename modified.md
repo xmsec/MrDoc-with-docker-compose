@@ -22,7 +22,7 @@
         max-height:700px;
     ```
 
-3. 取消标题折叠
+3. 取消标题折叠(功能已关闭)
     static/mrdoc/mrdoc-docs.js:250+
     ```
        $(".layui-icon-down").length<1?($(".switch-toc")).toArray().forEach(function(ele){ele.click(SwitchToc)}):'';

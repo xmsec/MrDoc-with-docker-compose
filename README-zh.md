@@ -9,7 +9,7 @@
 
 
 <p align="center">
-<img src="https://img.shields.io/badge/MrDoc-v0.7.4-brightgreen.svg" title="Mrdoc" />
+<img src="https://img.shields.io/badge/MrDoc-v0.7.7-brightgreen.svg" title="Mrdoc" />
 <img src="https://img.shields.io/badge/Python-3.6+-blue.svg" title="Python" />
 <img src="https://img.shields.io/badge/Django-v2.2-important.svg" title="Django" />
 </p>
@@ -38,18 +38,13 @@ MrDoc 适合作为个人和中小型团队的私有云文档、云笔记和知�
 
 你可以简单粗暴地将 MrDoc 视为「可私有部署的语雀」和「可在线编辑文档的GitBook」。
 
-MrDoc 目前涵盖终端：
+MrDoc 全系产品目前涵盖以下终端：
 
 - Web端
-- Chrome扩展：
-    - MrDoc官方插件：[Gitee](https://gitee.com/zmister/mrdoc-webclipper) | [MicroSoft Edge 应用商店](https://microsoftedge.microsoft.com/addons/detail/dihimgafbjljdfanobikhnolpmjjhpic) | [Chrome](https://chrome.google.com/webstore/detail/jefmnpfkhhmmnfbhaegnggffbdplijje)
-    - 简悦扩展：[GitHub](https://github.com/Kenshin/simpread) | [使用说明](https://github.com/Kenshin/simpread/issues/893)
+- Chrome 浏览器扩展：[Gitee](https://gitee.com/zmister/mrdoc-webclipper) | [MicroSoft Edge 应用商店](https://microsoftedge.microsoft.com/addons/detail/dihimgafbjljdfanobikhnolpmjjhpic) | [Chrome](https://chrome.google.com/webstore/detail/jefmnpfkhhmmnfbhaegnggffbdplijje)
 - 桌面客户端：支持 Windows、Linux，[下载链接](https://gitee.com/zmister/mrdoc-desktop/releases/)
-
-开发中的终端：
-
-- 微信小程序（专业版）
-- 手机速记APP
+- 移动客户端APP：[Gitee](https://gitee.com/zmister/mrdoc-app-release)
+- 微信小程序（开发中）
 
 ## 演示站点
 
@@ -158,23 +153,25 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 
-## 第三方部署工具
+## 部署工具
 
-- [Docker镜像](https://registry.hub.docker.com/r/jonnyan404/mrdoc-nginx)
-- [Linux一键部署脚本](https://gitee.com/jonnyan404/oh-my-mrdoc)
-- [Windows部署面板](https://gitee.com/debj031634/win-django)
+- [Docker 官方镜像](https://hub.docker.com/r/zmister/mrdoc)
+- [Docker镜像 By jonnyan404 ](https://registry.hub.docker.com/r/jonnyan404/mrdoc-nginx)
+- [Linux 一键部署脚本 By jonnyan404](https://gitee.com/jonnyan404/oh-my-mrdoc)
+- [Windows 部署面板 By 小肥羊](https://gitee.com/debj031634/win-django)
+- [VirtualBox/VmWare 虚拟机镜像 By 无名](https://gitee.com/nicktf/tinycore-mrdoc)
 
 ## 交流
 
-<p>微信公众号：州的先生（ID：zmister2016）</p>
-<img src="http://mrdoc.zmister.com/media//202010/2020-10-29_213550.png" height=150 />
-
 <p>QQ群：735507293 <a href="http://shang.qq.com/wpa/qunwpa?idkey=143c23a4ffbd0ba9137d2bce3ee86c83532c05259a0542a69527e36615e64dba"><img src="http://pub.idqqimg.com/wpa/images/group.png" /></a></p>
-<p>QQ群2：849206042 <a href="https://qm.qq.com/cgi-bin/qm/qr?k=LsgDSw8a6IlrzORBGGyRC6LrlIU_vYON&jump_from=webapi"><img src="//pub.idqqimg.com/wpa/images/group.png" /></a></p>
+
+<p align="center">
+<img src="https://doc.mrdoc.pro/media/202203/20220331121926_20220331122015390193.png" height="50%">
+</p>
 
 ## 依赖
 
-觅思文档基于以下项目进行开发，在此表示感谢：
+觅思文档基于以下开源项目进行开发，在此表示感谢：
 
 - Python
 - Django
