@@ -61,8 +61,12 @@ tagCurrentDoc();
     小屏幕下的文集大纲显示处理
 */
 //监听浏览器宽度的改变
+var browserWidth = document.documentElement.clientWidth;
 window.onresize = function(){
-    changeSidebar();
+    // console.log("可视区域变动")
+    if(browserWidth !== document.documentElement.clientWidth){
+        changeSidebar();
+    }
 };
 function changeSidebar(){
     // 获取匹配指定的媒体查询
@@ -394,7 +398,7 @@ $("#collect_doc").click(function(){
 function initDocRender(mode){
     if(mode == 1){
         editormd.markdownToHTML("content", {
-            emoji           : true,  //emoji表情
+            emoji           : false,  //emoji表情
             taskList        : true,  // 任务列表
             tex             : true,  // 科学公式
             flowChart       : true,  // 流程图

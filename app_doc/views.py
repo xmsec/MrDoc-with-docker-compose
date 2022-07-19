@@ -89,13 +89,18 @@ def validateTitle(title):
   new_title = re.sub(rstr, "_", title) # 替换为下划线
   return new_title
 
-# markdown文本生成摘要（不带markdown标记）
+# 文档文本生成摘要（不带markdown标记和html标签）
 def remove_markdown_tag(docs):
     for doc in docs:
         try:
-            doc.pre_content = strip_tags(markdown.markdown(doc.pre_content))
+            if doc.editor_mode == 3: # 富文本文档
+                doc.content = strip_tags(doc.content)[:201]
+            elif doc.editor_mode == 4:
+                doc.pre_content = "此为表格文档，进入文档查看详细内容"
+            else: # 其他文档
+                doc.pre_content = strip_tags(markdown.markdown(doc.pre_content))[:201]
         except Exception as e:
-            doc.pre_content = doc.pre_content
+            doc.pre_content = doc.pre_content[:201]
 
 # 获取文集的文档目录
 def get_pro_toc(pro_id):
@@ -1435,8 +1440,13 @@ def del_doc(request):
             elif range == 'multi':
                 docs = doc_id.split(",")
                 try:
-                    Doc.objects.filter(id__in=docs,create_user=request.user).update(status=3,modify_time=datetime.datetime.now())
-                    Doc.objects.filter(parent_doc__in=docs).update(status=3,modify_time=datetime.datetime.now())
+                    # 管理员无需验证权限
+                    if request.user.is_superuser:
+                        Doc.objects.filter(id__in=docs).update(status=3,modify_time=datetime.datetime.now())
+                        Doc.objects.filter(parent_doc__in=docs).update(status=3, modify_time=datetime.datetime.now())
+                    else:
+                        Doc.objects.filter(id__in=docs,create_user=request.user).update(status=3,modify_time=datetime.datetime.now())
+                        Doc.objects.filter(parent_doc__in=docs).update(status=3,modify_time=datetime.datetime.now())
                     return JsonResponse({'status': True, 'data': _('删除完成')})
                 except:
                     return JsonResponse({'status': False, 'data': _('非法请求')})
@@ -1463,8 +1473,10 @@ def manage_doc(request):
         published_doc_cnt = Doc.objects.filter(create_user=request.user, status=1).count()
         # 草稿文档数量
         draft_doc_cnt = Doc.objects.filter(create_user=request.user, status=0).count()
+        # 回收站文档数量
+        recycle_doc_cnt = Doc.objects.filter(create_user=request.user, status=3).count()
         # 所有文档数量
-        all_cnt = published_doc_cnt + draft_doc_cnt
+        all_cnt = published_doc_cnt + draft_doc_cnt + recycle_doc_cnt
         return render(request,'app_doc/manage/manage_doc.html',locals())
     else:
         kw = request.POST.get('kw', '')
@@ -2235,7 +2247,8 @@ def report_md(request):
     user = request.user
     if types == 'single':
         try:
-            Project.objects.get(id=int(pro_id),create_user=user)
+            if user.is_superuser is False:
+                Project.objects.get(id=int(pro_id),create_user=user)
             project_md = ReportMD(
                 project_id=int(pro_id)
             )

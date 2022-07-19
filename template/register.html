@@ -48,7 +48,7 @@
         }
     </style>
 </head>
-<body background="{% static 'PearAdminLayui/admin/images/background.svg' %}">
+<body background="{% static 'PearAdminLayui/admin/images/background.jpg' %}" style="background-repeat: no-repeat;background-size: cover;min-height: 100vh;">
     <div class="container">
         <div></div>
         <div></div>
@@ -69,7 +69,7 @@
                 {% endif %}
                 <div class="layui-form-item">
                     <div class="layui-input-inline">
-                      <input type="text" name="username" required  lay-verify="required" placeholder="请输入用户名，不少于5位" autocomplete="off" class="layui-input" value="{{username}}">
+                      <input type="text" name="username" required  lay-verify="required" placeholder="请输入用户名，小写英文字母或数字，不少于5位" autocomplete="off" class="layui-input" value="{{username}}">
                     </div>
                 </div>
                 <div class="layui-form-item">

@@ -128,6 +128,7 @@ def get_projects(request):
             item = {
                 'id':project.id, # 文集ID
                 'name':project.name, # 文集名称
+                'icon': project.icon,  # 文集图标
                 'type':project.role # 文集状态
             }
             project_list.append(item)
@@ -150,7 +151,7 @@ def get_docs(request):
     try:
         token = UserToken.objects.get(token=token)
         pid = request.GET.get('pid','')
-        docs = Doc.objects.filter(create_user=token.user,top_doc=pid).order_by('{}create_time'.format(sort))  # 查询文集下的文档
+        docs = Doc.objects.filter(create_user=token.user,top_doc=pid,status=1).order_by('{}create_time'.format(sort))  # 查询文集下的文档
         doc_list = []
         for doc in docs:
             item = {
@@ -161,7 +162,8 @@ def get_docs(request):
                 'status':doc.status, # 文档状态
                 'create_time': doc.create_time,  # 文档创建时间
                 'modify_time': doc.modify_time,  # 文档的修改时间
-                'create_user': doc.create_user.username  # 文档的创建者
+                'create_user': doc.create_user.username,  # 文档的创建者
+                'editor_mode': doc.editor_mode,  # 文档类型
             }
             doc_list.append(item)
         return JsonResponse({'status': True, 'data': doc_list})
@@ -183,6 +185,7 @@ def get_doc(request):
         item = {
             'id': doc.id,  # 文档ID
             'name': doc.name,  # 文档名称
+            "content": doc.content,  # 文档内容
             'md_content':doc.pre_content, # 文档内容
             'parent_doc':doc.parent_doc, # 上级文档
             'top_doc':doc.top_doc, # 所属文集
@@ -213,13 +216,13 @@ def create_project(request):
     try:
         # 验证Token
         token = UserToken.objects.get(token=token)
-        Project.objects.create(
+        p = Project.objects.create(
             name = project_name, # 文集名称
             intro = project_desc, # 文集简介
             role = project_role, # 文集权限
             create_user = token.user # 创建的用户
         )
-        return JsonResponse({'status': True, 'data': 'ok'})
+        return JsonResponse({'status': True, 'data': p.id})
     except ObjectDoesNotExist:
         return JsonResponse({'status': False, 'data': _('token无效')})
     except:
@@ -243,13 +246,22 @@ def create_doc(request):
         is_project = Project.objects.filter(create_user=token.user,id=project_id)
         # 新建文档
         if is_project.exists():
-            doc = Doc.objects.create(
-                name = doc_title, # 文档内容
-                pre_content = doc_content, # 文档的编辑内容，意即编辑框输入的内容
-                top_doc = project_id, # 所属文集
-                editor_mode = editor_mode, # 编辑器模式
-                create_user = token.user # 创建的用户
-            )
+            if int(editor_mode) == 1 or int(editor_mode) == 2:
+                doc = Doc.objects.create(
+                    name=doc_title,  # 文档内容
+                    pre_content=doc_content,  # 文档的编辑内容，意即编辑框输入的内容
+                    top_doc=project_id,  # 所属文集
+                    editor_mode=editor_mode,  # 编辑器模式
+                    create_user=token.user  # 创建的用户
+                )
+            elif int(editor_mode) == 3:
+                doc = Doc.objects.create(
+                    name=doc_title,  # 文档内容
+                    content=doc_content,  # 文档的编辑内容，意即编辑框输入的内容
+                    top_doc=project_id,  # 所属文集
+                    editor_mode=editor_mode,  # 编辑器模式
+                    create_user=token.user  # 创建的用户
+                )
             return JsonResponse({'status': True, 'data': doc.id})
         else:
             return JsonResponse({'status':False,'data':_('非法请求')})
@@ -276,18 +288,27 @@ def modify_doc(request):
         # 修改现有文档
         if is_project.exists():
             # 将现有文档内容写入到文档历史中
-            doc = Doc.objects.get(id=doc_id)
+            doc = Doc.objects.get(id=doc_id,top_doc=project_id)
             DocHistory.objects.create(
                 doc=doc,
                 pre_content=doc.pre_content,
                 create_user=token.user
             )
             # 更新修改现有文档
-            Doc.objects.filter(id=int(doc_id)).update(
-                name=doc_title,
-                pre_content=doc_content,
-                modify_time=datetime.datetime.now(),
-            )
+            if doc.editor_mode == 1 or doc.editor_mode == 2: # markdown文档
+                Doc.objects.filter(id=int(doc_id),top_doc=project_id).update(
+                    name=doc_title,
+                    pre_content=doc_content,
+                    modify_time=datetime.datetime.now(),
+                )
+            elif doc.editor_mode == 3: # 富文本文档
+                Doc.objects.filter(id=int(doc_id),top_doc=project_id).update(
+                    name=doc_title,
+                    content=doc_content,
+                    modify_time=datetime.datetime.now(),
+                )
+            elif doc.editor_mode == 4: # 在线表格
+                pass
             return JsonResponse({'status': True, 'data': 'ok'})
         else:
             return JsonResponse({'status':False,'data':'非法请求'})
@@ -329,7 +350,7 @@ def upload_img_url(request):
     try:
         # 验证Token
         token = UserToken.objects.get(token=token)
-        if token.user.is_writer:
+        if token.user:
             # 上传图片
             if url_img.startswith("data:image"):  # 以URL形式上传的BASE64编码图片
                 result = base_img_upload(url_img, '', token.user)

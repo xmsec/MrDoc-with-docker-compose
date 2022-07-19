@@ -9,7 +9,7 @@
 
 
 <p align="center">
-<img src="https://img.shields.io/badge/MrDoc-v0.7.7-brightgreen.svg" title="Mrdoc" />
+<img src="https://img.shields.io/badge/MrDoc-v0.8.0-brightgreen.svg" title="Mrdoc" />
 <img src="https://img.shields.io/badge/Python-3.6+-blue.svg" title="Python" />
 <img src="https://img.shields.io/badge/Django-v2.2-important.svg" title="Django" />
 </p>
@@ -17,7 +17,7 @@
 <p align="center">
 <a href="https://mrdoc.pro">官网</a> | 
 <a href="http://mrdoc.zmister.com/">演示站点</a> |
-<a href="http://shang.qq.com/wpa/qunwpa?idkey=143c23a4ffbd0ba9137d2bce3ee86c83532c05259a0542a69527e36615e64dba">QQ群</a>
+<a href="https://www.bilibili.com/video/BV1LF411u7NM/">零基础视频教程</a>
 </p>
 
 <p align="center">
@@ -40,10 +40,10 @@ MrDoc 适合作为个人和中小型团队的私有云文档、云笔记和知�
 
 MrDoc 全系产品目前涵盖以下终端：
 
-- Web端
-- Chrome 浏览器扩展：[Gitee](https://gitee.com/zmister/mrdoc-webclipper) | [MicroSoft Edge 应用商店](https://microsoftedge.microsoft.com/addons/detail/dihimgafbjljdfanobikhnolpmjjhpic) | [Chrome](https://chrome.google.com/webstore/detail/jefmnpfkhhmmnfbhaegnggffbdplijje)
-- 桌面客户端：支持 Windows、Linux，[下载链接](https://gitee.com/zmister/mrdoc-desktop/releases/)
-- 移动客户端APP：[Gitee](https://gitee.com/zmister/mrdoc-app-release)
+- Web端：开源版、专业版，[版本差异](https://doc.mrdoc.pro/project-7/doc-3441/)
+- 浏览器扩展：支持 Chromium 系列浏览器、Firefox 浏览器，[下载地址](https://gitee.com/zmister/mrdoc-webclipper)
+- 桌面客户端：支持 Windows、macOS、Linux，[下载地址](https://gitee.com/zmister/mrdoc-desktop-release/releases/)
+- 移动客户端：支持 Android，[下载地址](https://gitee.com/zmister/mrdoc-app-release)
 - 微信小程序（开发中）
 
 ## 演示站点
@@ -163,10 +163,8 @@ python manage.py runserver
 
 ## 交流
 
-<p>QQ群：735507293 <a href="http://shang.qq.com/wpa/qunwpa?idkey=143c23a4ffbd0ba9137d2bce3ee86c83532c05259a0542a69527e36615e64dba"><img src="http://pub.idqqimg.com/wpa/images/group.png" /></a></p>
-
 <p align="center">
-<img src="https://doc.mrdoc.pro/media/202203/20220331121926_20220331122015390193.png" height="50%">
+<img src="https://doc.mrdoc.pro/media/202203/20220331121926_20220331122015390193.png" width="50%">
 </p>
 
 ## 依赖

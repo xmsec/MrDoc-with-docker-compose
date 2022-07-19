@@ -20,7 +20,7 @@
         <a class="btn pull-left" aria-label="" href="{% url 'create_doc' %}?pid={{project.id}}" target="_blank">
             <i class="layui-icon layui-icon-add-1"></i> <span class="layui-hide-xs">{% trans "添加" %}</span>
         </a>
-        <a class="btn pull-left" aria-label="" href="{% url 'user_center' %}">
+        <a class="btn pull-left" aria-label="" href="{% url 'user_center' %}?tab=manage_doc">
             <i class="fa fa-cubes"></i> <span class="layui-hide-xs">{% trans "管理" %}</span>
         </a>
     {% elif colla_user > 0 %}
@@ -394,4 +394,13 @@
         updateDocShare(share_data);
     })
 </script>
+
+<!-- 在线表格文档根据窗口高度调整表格高度 -->
+{% if doc.editor_mode == 4 %}
+<script>
+    var lucksheet_height = $(window).height() - $(".doc-header").height() - $(".doc-info").height() - 30;
+    $("#luckysheet").height(lucksheet_height);
+</script>
+{% endif %}
+
 {% endblock %}

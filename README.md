@@ -8,7 +8,7 @@
 </p>
 
 <p align="center">
-<img src="https://img.shields.io/badge/MrDoc-v0.7.7-brightgreen.svg" title="Mrdoc" />
+<img src="https://img.shields.io/badge/MrDoc-v0.8.0-brightgreen.svg" title="Mrdoc" />
 <img src="https://img.shields.io/badge/Python-3.6+-blue.svg" title="Python" />
 <img src="https://img.shields.io/badge/Django-v2.2-important.svg" title="Django" />
 </p>
@@ -16,7 +16,6 @@
 <p align="center">
 <a href="https://mrdoc.pro/en.html">Home</a> | 
 <a href="http://mrdoc.zmister.com/">Example Site</a> |
-<a href="https://qm.qq.com/cgi-bin/qm/qr?k=LsgDSw8a6IlrzORBGGyRC6LrlIU_vYON&jump_from=webapi">QQ Group</a>
 
 </p>
 
@@ -39,9 +38,9 @@
 Current Platform：
 
 - Web:[instructions](http://mrdoc.zmister.com/project-7/)；
-- Chrome Extends:[MicroSoft Edge](https://microsoftedge.microsoft.com/addons/detail/dihimgafbjljdfanobikhnolpmjjhpic) | [Chrome](https://chrome.google.com/webstore/detail/jefmnpfkhhmmnfbhaegnggffbdplijje)
-- Desktop: supportd Windows,Linux [Download](https://github.com/zmister2016/mrdoc-desktop/releases/)
-- Mobile APP:[Gitee](https://gitee.com/zmister/mrdoc-app-release)
+- Browser Extensions:Supported Chromium Browser,Firefox Browser [Download](https://gitee.com/zmister/mrdoc-webclipper)
+- Desktop: Supported Windows,macOS,Linux [Download](https://gitee.com/zmister/mrdoc-desktop-release/releases/)
+- Mobile APP:supportd Android [Download](https://gitee.com/zmister/mrdoc-app-release)
 
 ## Example Site
 

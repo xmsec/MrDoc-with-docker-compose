@@ -60,7 +60,8 @@
             <a href="javascript:;"><i class="fa fa-dashboard layui-hide-md"></i><span class="layui-hide-xs">管理</span></a>
             <dl class="layui-nav-child mrdoc-import-doc-child"> <!-- 二级菜单 -->
                 <dd><a href="{% url 'pro_list' %}" target="_blank">首页</a></dd>
-                <dd><a href="{% url 'user_center' %}" target="_blank">个人中心</a></dd>
+                <dd><a href="{% url 'user_center' %}?tab=manage_project" target="_blank">文集管理</a></dd>
+                <dd><a href="{% url 'user_center' %}?tab=manage_doc" target="_blank">文档管理</a></dd>
             </dl>  
         </li>
 
@@ -257,7 +258,8 @@
         for(var i = 0;i < sel_pro_list.length; i++){
             if(sel_pro_list[i].getAttribute('lay-value') == '{{pid}}'){
                 var sel_pro = 'dd[lay-value=' + sel_pro_list[i].getAttribute('lay-value') + ']';
-                $('#project').siblings("div.layui-form-select").find('dl').find(sel_pro).click();
+                $('#project').siblings("div.layui-form-select").find('dl').find(sel_pro)[0].click();
+                break;
             }
         };
 
@@ -474,4 +476,11 @@
         })
 
     </script>
+    <!-- 在线表格文档根据窗口高度调整表格高度 -->
+    {% if editor_mode == 4 %}
+    <script>
+        var lucksheet_height = $(window).height() - $(".doc-header").height() - $(".doc-info").height() - 70;
+        $("#luckysheet").height(lucksheet_height);
+    </script>
+    {% endif %}
 {% endblock %}
